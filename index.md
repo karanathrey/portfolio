@@ -1,10 +1,12 @@
-## Portfolio
+# Portfolio
 
 ---
 
-### Category Name 1 
+## [India-Australia Test Series 20/21 Bowling Analysis - Project 1](/sample_page)
+### Overview
+This project is based on the sport of cricket. The aim of this project is to analyse and compare the pitching zones of the top bowlers in the India-Australia test series in 2020/21. This is accomplished by visualising the ball by ball data which can be obtained from ESPNcricinfo's scorecard commentary. 
 
-[Project 1 Title](/sample_page)
+### Data Collection
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
