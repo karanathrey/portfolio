@@ -1,10 +1,10 @@
 title: Karan Athrey # your name (or website title) here
 logo: "/images/profile.jpg?raw=true" # your photo (or logo) here
 description: > # your text below (remove <br> elements if you don't need line breaks)
-  First description 
-  <br>Data Analyst Portfolio<br>
-  Second description 
-  <br>Welcome to my portfolio. Here, I showcase my skills relevant in the field of Data Analytics. <br>
+  Data Analyst Portfolio
+  <br><br>
+  Welcome to my portfolio. Here, I showcase my skills relevant in the field of Data Analytics. 
+  <br><br>
   <a href="https://www.linkedin.com/in/karan-athrey-980425117/">View My LinkedIn Profile</a> 
   
 theme: jekyll-theme-minimal
