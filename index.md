@@ -6,7 +6,12 @@
 ### Overview
 This project is based on the sport of cricket. The aim of this project is to analyse and compare the pitching zones of the top bowlers in the India-Australia test series in 2020/21. This is accomplished by visualising the ball by ball data which can be obtained from ESPNcricinfo's scorecard commentary. 
 
-### Data Collection
+### Data Collection:
+The source of the data was the scorecard available on ESPNcricinfo. The ball by ball data from every innings of the four matches was scraped for this project. The raw dataset obtained were stored as structured data in a CSV format. 
+
+The ball by ball data can be explained as different column attributed as follows:
+
+
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
