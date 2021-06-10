@@ -18,8 +18,8 @@ The source of the data was the scorecard available on ESPNcricinfo. The ball by 
 
 ### Data Transformation:
 <p>The raw data scraped had to be structured and transformed to be made readily available for data analysis. The data in its raw form does not allow for required analysis and therefore different transformation techniques were applied to make the dataset viable. </p>
-Firstly, two new attributes were created using the 'commentary' column. Using word filters, the python code searches for keywords in the 'commentary' field and determines the line and length
-The different datasets acquired for each innings in the frour matches were merged into one excel file. 
+<p>Firstly, two new attributes were created using the 'commentary' column. Using word filters, the python code searches for keywords in the 'commentary' field and determines the line and length for a bowled ball. The line and length are key attributes for a pitch map analysis as they define the position of ball landing on the pitch. </p>
+The different datasets acquired for each innings in the four matches were merged into one excel file so that the entire series can be analysed under a single dataset. This excel dataset can be viewed on my [Kaggle profile] (/sample page)
 
 
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
