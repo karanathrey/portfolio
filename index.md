@@ -2,7 +2,7 @@
 
 ---
 
-## [India-Australia Test Series 20/21 Pitch Map Analysis - Project 1](/sample_page)
+## [India-Australia Test Series 20/21 Pitch Map Analysis - Project 1](https://github.com/karanathrey/CricketData)
 ### Overview
 This project is based on the sport of cricket. The aim of this project is to analyse and compare the pitching zones of the top bowlers in the India-Australia test series in 2020/21. This is accomplished by visualising the ball by ball data which can be obtained from ESPNcricinfo's scorecard commentary. 
 
@@ -46,7 +46,7 @@ The most vital conclusion is how the worst pace bowler in the series, Starc with
 
 ---
 
-## [Cricket Batsman's Score Predictor - Project 2](/sample_page)
+## [Cricket Batsman's Score Predictor - Project 2](https://gist.github.com/karanathrey/2754cf7c702fb7f17ec8317502f103a5)
 ### Overview
 This project aims to create a model to predict a Chris Gayle's IPL score using Bayesian Gaussian Inference. The 'deliveries.csv' dataset is taken from <a href="https://www.kaggle.com/manasgarg/ipl">Kaggle</a> and it contains ball by ball data for all IPL matches from 2008 to 2016.  
 
@@ -62,16 +62,20 @@ The dataset needed to be filtered for the batsman "Chris Gayle". The key columns
 
 Moreover, the ball by ball data is grouped into another dataset which groups the batsman's runs by matches. This dataset 'gayle_runs' was used to build the model.
 
+<i>(Tools used: Python - pandas)</i>
+
 ### Probability Plotting
 Using the column 'batsman_runs', the probability density can be plotted for the runs Chris Gayle scores in a single match or a single ball using both 'gayle_runs' and 'deliveries.csv'. The Kernel Density Estimation (KDE) chart was used to plot the probabilities as the KDE plot offers a better and robust alternative to the probability density plot (PDP) as it aggregates multiple normal distributions to estimate data frequency and plot the probability density.
 
-<img src="images/Cummins.png?raw=true"/>
+<img src="images/PD2.png?raw=true"/>
 
 We can get a summary of the probability density of match runs with the help of this graph. The plotted graph shows the highest density for 0-25 runs which does indicate scores to be more common between 0 and 25 in a match. Another observation is the normal like distribution around 75.
 
-<img src="images/Cummins.png?raw=true"/>
+<img src="images/PD1.png?raw=true"/>
 
 This graph plots the probability density for runs on a single ball. The graph shows how the batsman hitting a 6 is more likely than a 4.
+
+<i>(Tools used: Python - pandas and arviz)</i>
 
 ### Model Description
 The parameters in this model are as follows:
@@ -80,16 +84,20 @@ The parameters in this model are as follows:
 - Standard Deviation(σ): A half normal distribution for runs.
 - Function(y): The likelihood for how many runs the batsman will score.
 
+<i>(Tools used: Python - pymc3 and arviz)</i>
+
 ### Results
 Four models were created under different sampling parameters to ensure high efficiency for the model. Each model was tested with Gelman Rubin tests and the most efficient model was used for the project.
 
-<img src="images/Cummins.png?raw=true"/>
+<img src="images/Model.png?raw=true"/>
 
-Since this is a type of Bayesian inference, we get the entire distribution of values instead of a single value. Observing the plot, we can interpret that Chris Gayle has a 94% chance of scoring between 30 and 43.
-Another way to validate our model and check for a more specific prediction is using the Posterior
+<p>Since this is a type of Bayesian inference, we get the entire distribution of values instead of a single value. Observing the plot, we can interpret that Chris Gayle has a 94% chance of scoring between 30 and 43. </p>
+<p>Another way to validate our model and check for a more specific prediction is using the Posterior
 Predictive Checks (PPCs). A posterior predictive check uses the observed data distribution and the
-newfound posterior distribution to make valuable predictions.
+newfound posterior distribution to make valuable predictions. </p>
 
-<img src="images/Cummins.png?raw=true"/>
+<img src="images/Result.png?raw=true"/>
 
 The histogram shows the mean distribution of the posterior predictive. A line is plotted on the inferred mean, which shows that Chris Gayle is predicted to score around 37 runs.
+
+<i>(Tools used: Python - pymc3 and arviz)</i>
