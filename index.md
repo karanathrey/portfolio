@@ -85,6 +85,11 @@ Four models were created under different sampling parameters to ensure high effi
 
 <img src="images/Cummins.png?raw=true"/>
 
-Since this is a type of Bayesian inference, we get the entire distribution of
-values instead of a single value. Observing the plot, we can interpret that Chris Gayle has a 94%
-chance of scoring between 30 and 43.
+Since this is a type of Bayesian inference, we get the entire distribution of values instead of a single value. Observing the plot, we can interpret that Chris Gayle has a 94% chance of scoring between 30 and 43.
+Another way to validate our model and check for a more specific prediction is using the Posterior
+Predictive Checks (PPCs). A posterior predictive check uses the observed data distribution and the
+newfound posterior distribution to make valuable predictions.
+
+<img src="images/Cummins.png?raw=true"/>
+
+The histogram shows the mean distribution of the posterior predictive. A line is plotted on the inferred mean, which shows that Chris Gayle is predicted to score around 37 runs.
