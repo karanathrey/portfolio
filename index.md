@@ -43,3 +43,48 @@ The source of the data was the scorecard available on ESPNcricinfo. The ball by 
 
 ### Conclusion 
 The most vital conclusion is how the worst pace bowler in the series, Starc with 11 wkts @40.72 average didn't bowl enough good length aiming at the off stump area. Compare that to Cummins or Siraj who were much more disciplined in that aspect. Both Siraj's and Cummins' success can be related to their higher pitches in that area. 
+
+---
+
+## [Cricket Batsman's Score Predictor - Project 2](/sample_page)
+### Overview
+This project aims to create a model to predict a Chris Gayle's IPL score using Bayesian Gaussian Inference. The 'deliveries.csv' dataset is taken from <a href="https://www.kaggle.com/manasgarg/ipl">Kaggle</a> and it contains ball by ball data for all IPL matches from 2008 to 2016.  
+
+### Data Overview and Cleaning:
+<p>This dataset has 150460 records for every single ball bowled in all the nine seasons. Experiments across Bayesian Inference will be performed over this dataset to make satisfactory models
+which will help make an inference or prediction of a specific event. </p>
+
+The dataset needed to be filtered for the batsman "Chris Gayle". The key columns from this dataset required for this project are:
+- 'match_id': Shows the match number.
+- 'over': Over of the match.
+- 'ball': The ball number of the over.
+- 'batsman_runs': The runs scored in a particular ball.
+
+Moreover, the ball by ball data is grouped into another dataset which groups the batsman's runs by matches. This dataset 'gayle_runs' was used to build the model.
+
+### Probability Plotting
+Using the column 'batsman_runs', the probability density can be plotted for the runs Chris Gayle scores in a single match or a single ball using both 'gayle_runs' and 'deliveries.csv'. The Kernel Density Estimation (KDE) chart was used to plot the probabilities as the KDE plot offers a better and robust alternative to the probability density plot (PDP) as it aggregates multiple normal distributions to estimate data frequency and plot the probability density.
+
+<img src="images/Cummins.png?raw=true"/>
+
+We can get a summary of the probability density of match runs with the help of this graph. The plotted graph shows the highest density for 0-25 runs which does indicate scores to be more common between 0 and 25 in a match. Another observation is the normal like distribution around 75.
+
+<img src="images/Cummins.png?raw=true"/>
+
+This graph plots the probability density for runs on a single ball. The graph shows how the batsman hitting a 6 is more likely than a 4.
+
+### Model Description
+The parameters in this model are as follows:
+
+- Mean(μ): Prior for mean of the runs defined as a range.
+- Standard Deviation(σ): A half normal distribution for runs.
+- Function(y): The likelihood for how many runs the batsman will score.
+
+### Results
+Four models were created under different sampling parameters to ensure high efficiency for the model. Each model was tested with Gelman Rubin tests and the most efficient model was used for the project.
+
+<img src="images/Cummins.png?raw=true"/>
+
+Since this is a type of Bayesian inference, we get the entire distribution of
+values instead of a single value. Observing the plot, we can interpret that Chris Gayle has a 94%
+chance of scoring between 30 and 43.
