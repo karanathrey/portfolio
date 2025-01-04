@@ -1,5 +1,200 @@
 # Portfolio
 
+## [NFL Big Data Bowl 2025 - ML Dual Prediction Model](https://www.kaggle.com/datasets/karanathrey/nfl-big-data-bowl-2025-ml-dual-prediction-model)
+### Overview
+This project aims to predict whether an NFL play will be a run or pass and estimate the yards gained. Using machine learning techniques on NFL game data, we seek to enhance decision-making in play strategy and provide actionable insights for teams. The project addresses two key questions:
+
+1. Will the next play be a run or a pass?
+2. How many yards will the play gain?
+
+### Data Overview and Cleaning
+
+The dataset combines NFL play-by-play records, player tracking data, and Pro Football Focus (PFF) analytics. Key features include:
+
+- Game context: quarter, down, yardsToGo
+- Team information: possessionTeam, defensiveTeam
+- Offensive setup: offenseFormation, receiverAlignment
+- Player movement: x, y coordinates, speed, acceleration
+- Play characteristics: playClockAtSnap, playAction, dropbackType
+- Target variables: is_pass (binary), yardsGained (numeric)
+
+Data cleaning steps:
+1. Merged multiple CSV files using primary keys
+2. Handled missing values through imputation or removal
+3. Encoded categorical variables for machine learning models
+4. Consolidated relevant features into a single dataset
+
+### Feature Engineering and Importance
+
+Key engineered features:
+- down_distance: Combines down and yards to go
+- score_differential: Difference between team scores
+- pass_situation_tendency: Likelihood of passing based on yardage and down
+
+Top features by importance:
+1. offenseFormation
+2. playAction
+3. down_distance
+
+These features significantly influence play type predictions and align with football strategy intuition.
+
+### Analysis and Findings
+
+- Pass plays (65%) outnumber run plays (35%), indicating a potential bias towards passing in modern NFL.
+- Passing tendency increases on later downs, peaking at 82% on 3rd down.
+- Offensive formations strongly correlate with play type (e.g., "Empty" for passing, "I_FORM" for running).
+- Yards gained distribution is right-skewed, with most plays gaining 0-10 yards.
+
+### Model Overview & Performance
+
+Two-stage modeling approach:
+1. Classification Stage (Regularized Random Forest)
+   - Input: Pre-play features
+   - Output: Run/Pass predictions and probabilities
+   - Performance:
+     - AUC-ROC: 0.94
+     - F1-scores: Run (0.79), Pass (0.90)
+
+2. Regression Stage (XGBoost)
+   - Separate models for run and pass plays
+   - Input: Classification outputs + regression features
+   - Performance:
+     - Run Plays: R² = 0.4504, RMSE = 5.04 yards
+     - Pass Plays: R² = 0.2894, RMSE = 7.99 yards
+
+### Conclusion
+
+The project demonstrates the potential of machine learning in NFL play prediction. Key insights include:
+
+- Run plays are more predictable than pass plays
+- Offensive formation is the strongest predictor of play type
+- Model performance is stronger for shorter yardage situations
+
+These findings can enhance in-game decision-making, improve player training, and provide teams with a competitive edge. Future improvements could focus on addressing the variability in pass plays and refining models for edge cases.
+
+---
+## [Clustering Analysis](https://github.com/karanathrey/K_means)
+### Overview
+This project focuses on image compression using clustering techniques. The task involved compressing a given image by experimenting with various combinations of clusters ($$k$$) and window sizes ($$c \times c$$). The clustering methods applied were **k-means clustering** and **hierarchical (agglomerative) clustering**. The combinations tested were:
+
+- $$k \in \{4, 8, 16\}$$
+- $$c \in \{20, 40, 60\}$$
+
+The evaluation metrics used included **reconstruction error** for k-means clustering and both **reconstruction error** and **compression rate** for agglomerative clustering. The goal was to identify the optimal combination of $$k$$ and $$c$$ for effective image compression.
+
+### Analysis and Findings
+
+**Original Image**:
+
+#### K-Means Clustering Results:
+The image compression with k=16 and c=20 with K-means clustering yielded the lowest reconstruction error, which can be attributed to several key factors:
+
+**Window Size (c=20)**
+The smaller window size of 20x20 pixels provides better preservation of local details:
+- Captures fine-grained features like the reflection in the water
+- Maintains the distinct edges between buildings and trees
+- Preserves the textural details in the foliage and architectural elements
+
+**Number of Clusters (k=16)**
+The higher number of clusters (k=16) contributes to better color representation:
+- Allows for more diverse color palette representation
+- Captures subtle color variations in the sky and vegetation
+- Maintains good distinction between different shades of green in the trees
+- Preserves the contrast between the building structures and natural elements
+
+**Visual Quality Assessment**
+The compressed image demonstrates strong quality retention:
+- Clear definition of the tall building's structure against the sky
+- Well-preserved water reflections
+- Minimal blockiness or artifacts in the compressed output
+- Good preservation of the overall scene composition and depth
+
+The reconstruction error of approximately 18340827483.29 indicates that while compression is present, the image maintains significant visual fidelity to the original, particularly in preserving both structural and natural elements of the urban landscape.
+
+#### Agglomerative Clustering Results:
+The analysis of agglomerative clustering focuses on optimizing both compression rate and reconstruction error. The compression rate indicates how effectively the image data is reduced while maintaining visual quality.
+
+**Top Performing Combinations**
+
+| Parameters | Reconstruction Error | Compression Rate |
+|------------|---------------------|------------------|
+| k=16, c=20 | 23.86 × 10⁹        | 11.45           |
+| k=16, c=40 | 25.37 × 10⁹        | 14.83           |
+
+**Optimal Configuration**
+The combination of **k=16** and **c=20** emerges as the superior choice for several reasons:
+- Achieves the lowest reconstruction error (23.86 × 10⁹)
+- Maintains a reasonable compression rate of 11.45
+- Provides better balance between data reduction and image quality
+- Shows only minimal compression loss compared to the k=16, c=40 configuration
+
+While the k=16, c=40 combination offers a slightly higher compression rate (14.83), the increased reconstruction error makes it a less optimal choice. The selected parameters (k=16, c=20) demonstrate that smaller window sizes can achieve better error rates while maintaining acceptable compression levels.
+
+#### Comparison of Clustering Methods
+
+**Performance Metrics**
+| Method | Parameters | Reconstruction Error | Compression Rate |
+|--------|------------|---------------------|------------------|
+| K-means | k=16, c=20 | 18.34 × 10⁹ | N/A |
+| Agglomerative | k=16, c=20 | 23.86 × 10⁹ | 11.45 |
+
+**Key Observations**
+- K-means clustering achieved a lower reconstruction error, demonstrating better image quality preservation
+- Agglomerative clustering provides explicit compression rate metrics, offering a clear measure of data reduction
+- Both methods perform best with the same parameter combination (k=16, c=20), suggesting these values are optimal for this particular image
+- Visual quality remains high in both methods, preserving key features like the building structure, water reflections, and foliage details
+
+### Conclusion
+
+Through this clustering analysis project, I identified that the optimal combination of $$k$$ and $$c$$ depends on the trade-off between reconstruction error and compression rate. K-means clustering provided [insert insight], while agglomerative clustering excelled in [insert insight]. These findings highlight the strengths and limitations of each method for image compression tasks.
+
+---
+## [Global Economic Analysis](https://github.com/karanathrey/gapminder--systema_globalis_tableau_analysis)
+### Overview
+This project analyzes economic indicators across six geographically diverse countries, focusing on GDP growth patterns and unemployment trends from 1900 to 2015. The analysis combines data processing using SQL with interactive visualization in Tableau to uncover relationships between GDP growth, GDP per capita, and unemployment rates.
+
+### Data Overview
+
+The dataset comes from Gapminder's Systema Globalis collection, structured in the DDFcsv format, containing detailed economic indicators for countries worldwide. The key components include:
+
+**Economic Indicators:**
+- GDP Total Growth
+- GDP Per Capita Growth
+- Unemployment Rates (by gender and age groups)
+
+**Data Processing Steps:**
+- Created a normalized database schema with three main tables:
+  - unemployment_rates (tracking unemployment by age group and gender)
+  - gdp_growth_data (containing both total and per capita GDP growth)
+  - population_data (urban population statistics)
+ 
+### Analysis and Findings
+
+The analysis reveals several key patterns in economic development across the selected countries:
+
+**GDP Growth Volatility:**
+- UAE shows the highest standard deviation (20.08) in GDP growth, indicating significant economic volatility
+- USA demonstrates the most stable growth pattern with the lowest standard deviation (5.66)
+- Singapore maintains moderate volatility (11.98) despite rapid development
+
+**Unemployment and GDP Relationship:**
+- Developed nations show lower unemployment rates with stable GDP per capita growth
+- Emerging economies exhibit higher volatility in both metrics
+- The Netherlands demonstrates the most balanced relationship between unemployment (5.37%) and GDP per capita growth (1.662%)
+
+**Dashboard Visualization**
+
+[Insert Dashboard Image Here]
+
+**Key Dashboard Insights:**
+- Geographic distribution shows regional patterns in GDP growth stability
+- Moving averages reveal long-term trends in economic development
+- Clear correlation between unemployment rates and GDP per capita growth across regions
+
+### Conclusion
+
+The analysis demonstrates that developed countries tend to maintain more stable economic growth patterns with lower unemployment rates. The UAE and Singapore show characteristics of rapidly developing economies with higher growth volatility, while the USA and Netherlands represent mature economies with stable growth patterns. The data suggests that economic stability and unemployment rates are closely linked to a country's development stage, with more developed nations showing more resilient economic indicators.
+
 ---
 
 ## [India-Australia Test Series 20/21 Pitch Map Analysis - Project 1](https://github.com/karanathrey/CricketData)
