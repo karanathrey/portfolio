@@ -31,6 +31,8 @@ Key engineered features:
 - score_differential: Difference between team scores
 - pass_situation_tendency: Likelihood of passing based on yardage and down
 
+<img src="images/Model.png?raw=true"/>
+
 Top features by importance:
 1. offenseFormation
 2. playAction
@@ -40,12 +42,19 @@ These features significantly influence play type predictions and align with foot
 
 ### Analysis and Findings
 
+<img src="images/Model.png?raw=true"/>
+<img src="images/Model.png?raw=true"/>
+<img src="images/Model.png?raw=true"/>
+
+
 - Pass plays (65%) outnumber run plays (35%), indicating a potential bias towards passing in modern NFL.
 - Passing tendency increases on later downs, peaking at 82% on 3rd down.
 - Offensive formations strongly correlate with play type (e.g., "Empty" for passing, "I_FORM" for running).
 - Yards gained distribution is right-skewed, with most plays gaining 0-10 yards.
 
 ### Model Overview & Performance
+
+<img src="images/Model.png?raw=true"/>
 
 Two-stage modeling approach:
 1. Classification Stage (Regularized Random Forest)
@@ -85,8 +94,10 @@ The evaluation metrics used included **reconstruction error** for k-means cluste
 ### Analysis and Findings
 
 **Original Image**:
+<img src="images/Model.png?raw=true"/>
 
 #### K-Means Clustering Results:
+<img src="images/Model.png?raw=true"/>
 The image compression with k=16 and c=20 with K-means clustering yielded the lowest reconstruction error, which can be attributed to several key factors:
 
 **Window Size (c=20)**
@@ -120,6 +131,8 @@ The analysis of agglomerative clustering focuses on optimizing both compression 
 |------------|---------------------|------------------|
 | k=16, c=20 | 23.86 × 10⁹        | 11.45           |
 | k=16, c=40 | 25.37 × 10⁹        | 14.83           |
+
+<img src="images/Model.png?raw=true"/>
 
 **Optimal Configuration**
 The combination of **k=16** and **c=20** emerges as the superior choice for several reasons:
@@ -184,7 +197,7 @@ The analysis reveals several key patterns in economic development across the sel
 
 **Dashboard Visualization**
 
-[Insert Dashboard Image Here]
+<img src="images/Model.png?raw=true"/>
 
 **Key Dashboard Insights:**
 - Geographic distribution shows regional patterns in GDP growth stability
