@@ -31,7 +31,7 @@ Key engineered features:
 - score_differential: Difference between team scores
 - pass_situation_tendency: Likelihood of passing based on yardage and down
 
-<img src="images/Model.png?raw=true"/>
+<img src="images/nfl_feature_importance.png?raw=true"/>
 
 Top features by importance:
 1. offenseFormation
@@ -42,9 +42,9 @@ These features significantly influence play type predictions and align with foot
 
 ### Analysis and Findings
 
-<img src="images/Model.png?raw=true"/>
-<img src="images/Model.png?raw=true"/>
-<img src="images/Model.png?raw=true"/>
+<img src="images/nfl_data_distribution.png?raw=true"/>
+<img src="images/nfl_correlation.png?raw=true"/>
+<img src="images/nfl_yards_gained.png?raw=true"/>
 
 
 - Pass plays (65%) outnumber run plays (35%), indicating a potential bias towards passing in modern NFL.
@@ -54,7 +54,7 @@ These features significantly influence play type predictions and align with foot
 
 ### Model Overview & Performance
 
-<img src="images/Model.png?raw=true"/>
+<img src="images/nfl_model.png?raw=true"/>
 
 Two-stage modeling approach:
 1. Classification Stage (Regularized Random Forest)
@@ -70,6 +70,8 @@ Two-stage modeling approach:
    - Performance:
      - Run Plays: R² = 0.4504, RMSE = 5.04 yards
      - Pass Plays: R² = 0.2894, RMSE = 7.99 yards
+
+<i>(Tools used: Python - pandas, scikit-learn and matplotlib)</i>
 
 ### Conclusion
 
@@ -94,10 +96,10 @@ The evaluation metrics used included **reconstruction error** for k-means cluste
 ### Analysis and Findings
 
 **Original Image**:
-<img src="images/Model.png?raw=true"/>
+<img src="images/clustering_image.jpg?raw=true"/>
 
 #### K-Means Clustering Results:
-<img src="images/Model.png?raw=true"/>
+<img src="images/kmeans_bestcombo.jpg?raw=true"/>
 The image compression with k=16 and c=20 with K-means clustering yielded the lowest reconstruction error, which can be attributed to several key factors:
 
 **Window Size (c=20)**
@@ -112,6 +114,8 @@ The higher number of clusters (k=16) contributes to better color representation:
 - Captures subtle color variations in the sky and vegetation
 - Maintains good distinction between different shades of green in the trees
 - Preserves the contrast between the building structures and natural elements
+
+<i>(Tools used: Python - scikit-learn and matplotlib)</i>
 
 **Visual Quality Assessment**
 The compressed image demonstrates strong quality retention:
@@ -132,7 +136,7 @@ The analysis of agglomerative clustering focuses on optimizing both compression 
 | k=16, c=20 | 23.86 × 10⁹        | 11.45           |
 | k=16, c=40 | 25.37 × 10⁹        | 14.83           |
 
-<img src="images/Model.png?raw=true"/>
+<img src="images/agglomerative_bestcombo.jpg?raw=true"/>
 
 **Optimal Configuration**
 The combination of **k=16** and **c=20** emerges as the superior choice for several reasons:
@@ -181,6 +185,8 @@ The dataset comes from Gapminder's Systema Globalis collection, structured in th
   - gdp_growth_data (containing both total and per capita GDP growth)
   - population_data (urban population statistics)
  
+<i>(Tools used: MySQL)</i>
+ 
 ### Analysis and Findings
 
 The analysis reveals several key patterns in economic development across the selected countries:
@@ -197,7 +203,9 @@ The analysis reveals several key patterns in economic development across the sel
 
 **Dashboard Visualization**
 
-<img src="images/Model.png?raw=true"/>
+<img src="images/Economic_Analysis.png?raw=true"/>
+
+<i>(Tools used: Tableau)</i>
 
 **Key Dashboard Insights:**
 - Geographic distribution shows regional patterns in GDP growth stability
