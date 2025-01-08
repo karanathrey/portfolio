@@ -88,8 +88,8 @@ These findings can enhance in-game decision-making, improve player training, and
 ### Overview
 This project focuses on image compression using clustering techniques. The task involved compressing a given image by experimenting with various combinations of clusters ($$k$$) and window sizes ($$c \times c$$). The clustering methods applied were **k-means clustering** and **hierarchical (agglomerative) clustering**. The combinations tested were:
 
-$$k \in \{4, 8, 16\}$$
-$$c \in \{20, 40, 60\}$$
+- k in {4, 8, 16}
+- c in {20, 40, 60}
 
 The evaluation metrics used included **reconstruction error** for k-means clustering and both **reconstruction error** and **compression rate** for agglomerative clustering. The goal was to identify the optimal combination of $$k$$ and $$c$$ for effective image compression.
 
