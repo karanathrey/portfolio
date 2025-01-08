@@ -150,6 +150,7 @@ While the k=16, c=40 combination offers a slightly higher compression rate (14.8
 #### Comparison of Clustering Methods
 
 **Performance Metrics**
+
 | Method | Parameters | Reconstruction Error | Compression Rate |
 |--------|------------|---------------------|------------------|
 | K-means | k=16, c=20 | 18.34 × 10⁹ | N/A |
